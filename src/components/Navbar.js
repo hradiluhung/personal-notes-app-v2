@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ArchiveLinkButton from "./ArchiveLinkButton";
 import LogoutButton from "./LogoutButton";
@@ -30,6 +31,11 @@ const Navbar = ({ authedUser, logout }) => {
       </div>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  authedUser: PropTypes.object,
+  logout: PropTypes.func,
 };
 
 export default Navbar;

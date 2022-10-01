@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import PropTypes from "prop-types";
 import AddNoteButton from "../components/AddNoteButton";
 import NotesList from "../components/NotesList";
 import SearchBar from "../components/SearchBar";
@@ -68,6 +69,10 @@ const HomePage = ({ user }) => {
       <AddNoteButton />
     </section>
   );
+};
+
+HomePage.propTypes = {
+  user: PropTypes.object.isRequired,
 };
 
 export default HomePage;

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes, { object } from "prop-types";
 import LocaleContext from "../contexts/LocaleContext";
 import { notesListStrings } from "../utils/strings";
 import NoteCard from "./NoteCard";
@@ -23,6 +24,11 @@ const NotesList = ({ notes, isLoading }) => {
       })}
     </div>
   );
+};
+
+NotesList.propTypes = {
+  notes: PropTypes.arrayOf(object).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default NotesList;

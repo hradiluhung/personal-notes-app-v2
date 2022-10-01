@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { FiTrash } from "react-icons/fi";
 import { MdOutlineArchive, MdOutlineUnarchive } from "react-icons/md";
 import ActionContext from "../contexts/ActionContext";
@@ -31,6 +32,12 @@ const NoteCardAction = ({ noteId, noteIsArchived, openModal }) => {
       </div>
     </div>
   );
+};
+
+NoteCardAction.propTypes = {
+  noteId: PropTypes.string.isRequired,
+  noteIsArchived: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default NoteCardAction;

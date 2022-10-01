@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import LocaleContext from "../contexts/LocaleContext";
 import { showFormattedDate } from "../utils/network-data";
@@ -37,6 +38,10 @@ const NoteCard = ({ note }) => {
       {isOpen && <DeleteModal openModal={openModalHandler} noteId={note.id} />}
     </>
   );
+};
+
+NoteCard.propTypes = {
+  note: PropTypes.object.isRequired,
 };
 
 export default NoteCard;

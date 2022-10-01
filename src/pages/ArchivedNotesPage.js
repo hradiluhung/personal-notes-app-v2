@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import AddNoteButton from "../components/AddNoteButton";
 import NotesList from "../components/NotesList";
 import SearchBar from "../components/SearchBar";
 import { ActionProvider } from "../contexts/ActionContext";
@@ -12,7 +11,7 @@ import {
 } from "../utils/network-data";
 import { archivedNotesStrings } from "../utils/strings";
 
-const ArchivedNotesPage = ({ user }) => {
+const ArchivedNotesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [archivedNotes, setArchivedNotes] = useState([]);
   const [keyword, setKeyword] = useState(() => {

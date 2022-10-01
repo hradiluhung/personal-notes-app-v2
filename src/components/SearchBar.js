@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { FiSearch } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
 import { homeStrings } from "../utils/strings";
@@ -20,6 +21,11 @@ const SearchBar = ({ keyword, onKeywordChange }) => {
       />
     </label>
   );
+};
+
+SearchBar.propTypes = {
+  keyword: PropTypes.string,
+  onKeywordChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

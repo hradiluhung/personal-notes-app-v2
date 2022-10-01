@@ -1,20 +1,14 @@
 import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { FiMail, FiKey } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
 import { loginStrings } from "../utils/strings";
+import useInput from "../hooks/useInput";
 
 const LoginInput = ({ login }) => {
   const { locale } = useContext(LocaleContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onEmailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const onPasswordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  const [email, onEmailChange] = useInput("");
+  const [password, onPasswordChange] = useInput("");
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -33,7 +27,7 @@ const LoginInput = ({ login }) => {
           className="form__input"
           placeholder="Email"
           value={email}
-          onChange={onEmailChangeHandler}
+          onChange={onEmailChange}
         />
       </label>
       <label className="form__field">
@@ -45,7 +39,7 @@ const LoginInput = ({ login }) => {
           className="form__input"
           placeholder="Password"
           value={password}
-          onChange={onPasswordChangeHandler}
+          onChange={onPasswordChange}
         />
       </label>
       <button type="submit" className="form__submit-button">
@@ -53,6 +47,10 @@ const LoginInput = ({ login }) => {
       </button>
     </form>
   );
+};
+
+LoginInput.propTypes = {
+  login: PropTypes.func.isRequired,
 };
 
 export default LoginInput;

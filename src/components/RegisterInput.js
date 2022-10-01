@@ -1,31 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { FiUser, FiKey, FiMail } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
 import { registerStrings } from "../utils/strings";
+import useInput from "../hooks/useInput";
 
 const RegisterInput = ({ register }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, onNameChange] = useInput("");
+  const [email, onEmailChange] = useInput("");
+  const [password, onPasswordChange] = useInput("");
+  const [confirmPassword, onConfirmChange] = useInput("");
   const [isError, setIsError] = useState(false);
   const { locale } = useContext(LocaleContext);
-
-  const onNameChangeHandler = (event) => {
-    setName(event.target.value);
-  };
-
-  const onEmailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const onPasswordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const onConfirmChangeHandler = (event) => {
-    setConfirmPassword(event.target.value);
-  };
 
   useEffect(() => {
     if (password !== confirmPassword) {
@@ -58,7 +44,7 @@ const RegisterInput = ({ register }) => {
           className="form__input"
           placeholder={registerStrings[locale].name}
           value={name}
-          onChange={onNameChangeHandler}
+          onChange={onNameChange}
         />
       </label>
       <label className="form__field">
@@ -70,7 +56,7 @@ const RegisterInput = ({ register }) => {
           className="form__input"
           placeholder="Email"
           value={email}
-          onChange={onEmailChangeHandler}
+          onChange={onEmailChange}
         />
       </label>
       <label className="form__field">
@@ -82,7 +68,7 @@ const RegisterInput = ({ register }) => {
           className="form__input"
           placeholder="Password"
           value={password}
-          onChange={onPasswordChangeHandler}
+          onChange={onPasswordChange}
         />
       </label>
       <label className="form__field">
@@ -94,7 +80,7 @@ const RegisterInput = ({ register }) => {
           className="form__input"
           placeholder={registerStrings[locale].confirmPassword}
           value={confirmPassword}
-          onChange={onConfirmChangeHandler}
+          onChange={onConfirmChange}
         />
       </label>
       {isError && (
@@ -105,6 +91,10 @@ const RegisterInput = ({ register }) => {
       </button>
     </form>
   );
+};
+
+RegisterInput.propTypes = {
+  register: PropTypes.func.isRequired,
 };
 
 export default RegisterInput;

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import LoginInput from "../components/LoginInput";
 import { login } from "../utils/network-data";
@@ -27,6 +28,10 @@ const LoginPage = ({ loginSuccess }) => {
       </p>
     </section>
   );
+};
+
+LoginPage.propTypes = {
+  loginSuccess: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

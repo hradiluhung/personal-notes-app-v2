@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import LocaleContext from "../contexts/LocaleContext";
 import { addNoteStrings } from "../utils/strings";
@@ -58,6 +59,10 @@ const AddNoteInput = ({ onAddNote }) => {
       </div>
     </form>
   );
+};
+
+AddNoteInput.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
 };
 
 export default AddNoteInput;

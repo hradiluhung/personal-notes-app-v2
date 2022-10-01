@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import ActionContext from "../contexts/ActionContext";
 
 const DeleteModal = ({ noteId, openModal }) => {
@@ -24,6 +25,11 @@ const DeleteModal = ({ noteId, openModal }) => {
       </div>
     </div>
   );
+};
+
+DeleteModal.propTypes = {
+  noteId: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default DeleteModal;
