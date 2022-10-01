@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { FiMail, FiKey } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
